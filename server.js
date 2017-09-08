@@ -10,12 +10,12 @@ var github = githubhook({
 
 github.listen();
 
-github.on('fresh-sunday:refs/heads/master', function (data) {
+github.on('ledya:refs/heads/master', function (data) {
     // Exec a shell script
     var execOptions = {
         maxBuffer: 1024 * 1024 // Increase max buffer to 1mb
     };
-    execFile('/home/deployer/deploy/deploy.sh', execOptions, function(error, stdout, stderr) {
+    execFile('/home/forge/deploy/deploy.sh', execOptions, function(error, stdout, stderr) {
         if( error )
         {
             console.log(error)
